@@ -10,8 +10,19 @@ import {
 } from "@chakra-ui/react";
 import Login from "../components/Authentication/Login";
 import SignUp from "../components/Authentication/SignUp";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function HomePage() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
+    //check if user is logged in we will redirect to the chat page
+    if (userInfo) {
+      navigate("/chats");
+    }
+  }, [navigate]);
   return (
     <Container maxW="xl" centerContent>
       <Box
