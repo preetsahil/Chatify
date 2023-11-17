@@ -9,6 +9,7 @@ const ChatProvider = ({ children }) => {
   //we are storing our userinfo into local storage
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    console.log(userInfo)
     setUser(userInfo);
 
     //check if user is not logged in we will redirect to the login page
